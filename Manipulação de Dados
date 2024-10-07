@@ -1,0 +1,29 @@
+#Crie um programa que
+#Importe a biblioteca pandas como pd
+#Leia um DataFrame “Salarios.csv” e nomei-o de sal
+#Retorne o head do DataFrame
+#Use o método .info(), para descobrir quantas entradas ele tem
+#Qual é a média de Pagamento Base?
+#Qual é o maior montante pago em OvertimePay?
+#Qual é a profissão do ‘JOSEPH DRISCOLL’
+#Qual o nome da pessoa mais bem paga
+#Qual é a media de pagamento base por ano?
+#Quantas profissoes únicas existem?
+
+import pandas as pd
+
+sal = pd.read_csv('Salaries.csv')
+
+print(sal.head())
+print(sal.info())
+
+print(f'A média de Pagamento Base é {round(sal['BasePay'].mean(), 2)}')
+print(sal['BasePay'].dropna().mean())
+
+print(f'O maior montante pago em OvertimePay é {round(sal['OvertimePay'].max())}')
+print(f'A profissão do Joseph é {sal['JobTitle'][sal['EmployeeName'] == 'JOSEPH DRISCOLL'].values[0]}')
+print(f'A pessoa mais bem paga é {sal['EmployeeName'][sal['BasePay'] == sal['BasePay'].max()].values[0]}')
+print(f'A média de pagamento por ano é'
+      f'\n{sal[['Year', 'TotalPay']].groupby('Year').mean().\
+          sort_values(by= 'TotalPay', ascending= False)}')
+print(f'A quantidade de profissões que esistem é {sal['JobTitle'].nunique()}')
