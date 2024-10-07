@@ -1,15 +1,3 @@
-#Crie um programa que
-#Importe a biblioteca pandas como pd
-#Leia um DataFrame “Salarios.csv” e nomei-o de sal
-#Retorne o head do DataFrame
-#Use o método .info(), para descobrir quantas entradas ele tem
-#Qual é a média de Pagamento Base?
-#Qual é o maior montante pago em OvertimePay?
-#Qual é a profissão do ‘JOSEPH DRISCOLL’
-#Qual o nome da pessoa mais bem paga
-#Qual é a media de pagamento base por ano?
-#Quantas profissoes únicas existem?
-
 import pandas as pd
 
 sal = pd.read_csv('Salaries.csv')
